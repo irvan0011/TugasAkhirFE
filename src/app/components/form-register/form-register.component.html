@@ -7,26 +7,28 @@
   <div class="col-md-12 mt-5">
     <div class="col-12">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+          [(ngModel)]="user.userName">
         <i class="icon input-group-text"><img src="../../../assets/img/user.svg" class="img-fluid"></i>
       </div>
       <div class="input-group mb-3">
-        <input type="email" class="form-control" placeholder="Email" aria-label="email">
+        <input type="text" class="form-control" placeholder="Name" aria-label="Name" [(ngModel)]="user.nama">
+        <i class="icon input-group-text"><img src="../../../assets/img/user.svg" class="img-fluid">
+        </i>
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Email" aria-label="email" [(ngModel)]="user.email">
         <i class="icon input-group-text"><img src="../../../assets/img/mail.svg" class="img-fluid">
         </i>
       </div>
       <div class="input-group mb-3">
-        <input type="password" class="form-control" placeholder="Password" aria-label="password">
+        <input type="password" class="form-control" placeholder="Password" aria-label="password"
+          [(ngModel)]="user.password">
         <i class="icon input-group-text"><img src="../../../assets/img/password.svg" class="img-fluid">
         </i>
       </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
-        <i class="icon input-group-text"><img src="../../../assets/img/user.svg" class="img-fluid">
-        </i>
-      </div>
 
-      <button class="btn btn-submit col-12 mt-4">LOGIN</button>
+      <button class="btn btn-submit col-12 mt-4" (click)="post()">Register</button>
     </div>
   </div>
 </div>
