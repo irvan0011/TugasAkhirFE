@@ -1,1 +1,18 @@
-<p class="text-danger">login works!</p>
+<div class="container mt-5">
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="col-md-4 col-lg-3 my-auto col-sm-12">
+      <div *ngIf="bol==true">
+        <app-form-login></app-form-login>
+      </div>
+      <div *ngIf="bol==false">
+        <app-form-register></app-form-register>
+      </div>
+      <div class="text-center col-md-10 col-12 mt-5"><span>Punya akun? </span> <a (click)="form()"
+          class="text-warning fw-bold">Register</a>
+      </div>
+    </div>
+    <div class="col-md-8 col-lg-9 d-none d-md-block">
+      <img src="../../../assets/img/login.svg" class="img-fluid" alt="">
+    </div>
+  </div>
+</div>

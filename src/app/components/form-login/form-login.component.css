@@ -1,12 +1,12 @@
 .form-title {
   color: #60A5FA;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 56px;
 }
 
 .btn-submit {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: light;
   color: white;
   background-color: #60A5FA;
@@ -16,13 +16,10 @@
   background-color: transparent !important;
 }
 
-
 input {
-
   border-right: none;
-
-  &:focus {
-    box-shadow: none;
-    border-color: #e2e6e9 !important;
-  }
 }
+input:focus {
+  box-shadow: none;
+  border-color: #e2e6e9 !important;
+}/*# sourceMappingURL=form-login.component.css.map */
