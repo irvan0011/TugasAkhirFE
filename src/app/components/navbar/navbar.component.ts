@@ -1,13 +1,32 @@
-import { Component } from '@angular/core';
-import { Collapse, Dropdown, Ripple, initTE } from 'tw-elements';
+import { Component, ElementRef, HostListener } from '@angular/core';
 
-@Component({  
+@Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  ngOnInit() {
-    initTE({ Collapse, Dropdown, Ripple });
+  isMobileMenuOpen: boolean = false;
+  isProfileMenuOpen: boolean = false;
+
+  constructor(private el: ElementRef) {}
+
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
+
+  toggleProfileMenu() {
+    this.isProfileMenuOpen = !this.isProfileMenuOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event) {
+    if (!this.el.nativeElement.contains(event.target)) {
+      // Clicked outside the menu, so close it
+      this.isMobileMenuOpen = false;
+      this.isProfileMenuOpen = false;
+    }
+  }
+  
 }

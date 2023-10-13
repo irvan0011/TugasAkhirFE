@@ -13,6 +13,9 @@ import { LoginService } from './services/login.service';
 import { HomeService } from './services/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PostComponent } from './post/post.component';
+import { CardPostComponent } from './components/card-post/card-post.component';
+import { DetailPostComponent } from './pages/detail-post/detail-post.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { FormsModule } from '@angular/forms';
     FormLoginComponent,
     FormRegisterComponent,
     NavbarComponent,
+    PostComponent,
+    CardPostComponent,
+    DetailPostComponent,
   ],
   imports: [
     BrowserModule,
