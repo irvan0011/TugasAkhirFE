@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DetailPostComponent } from './pages/detail-post/detail-post.component';
+import { CardPeringkatComponent } from './components/card-peringkat/card-peringkat.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DetailPostComponent } from './pages/detail-post/detail-post.component';
     PostComponent,
     CardPostComponent,
     DetailPostComponent,
+    CardPeringkatComponent,
   ],
   imports: [
     BrowserModule,
