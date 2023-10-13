@@ -8,11 +8,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginService } from './services/login.service';
 import { HomeService } from './services/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PostComponent } from './post/post.component';
+import { CardPostComponent } from './components/card-post/card-post.component';
+import { DetailPostComponent } from './pages/detail-post/detail-post.component';
 import { AddPostComponent } from './page/add-post/add-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,10 @@ import { AddPostComponent } from './page/add-post/add-post.component';
     HomeComponent,
     FormLoginComponent,
     FormRegisterComponent,
+    NavbarComponent,
+    PostComponent,
+    CardPostComponent,
+    DetailPostComponent,
     AddPostComponent,
   ],
   imports: [
@@ -29,6 +39,8 @@ import { AddPostComponent } from './page/add-post/add-post.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    EditorModule,
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
