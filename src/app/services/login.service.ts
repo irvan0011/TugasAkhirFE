@@ -15,7 +15,6 @@ export class LoginService {
     const headers = {
       'Content-Type': 'application/json',
     };
-    console.log(user);
 
     return this.http.post<ILogin>(`${environment.baseURL}/op/v1/gt`, user, {
       headers,

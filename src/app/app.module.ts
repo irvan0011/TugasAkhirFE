@@ -12,6 +12,7 @@ import { LoginService } from './services/login.service';
 import { HomeService } from './services/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AddPostComponent } from './page/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     FormLoginComponent,
     FormRegisterComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [LoginService, HomeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
