@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
+<app-navbar (data)="addPost($event)"></app-navbar>
 <div class="container d-flex justify-content-center">
   <div class="col-sm-12 col-lg-8">
-    <input type="text" class="title col-12 my-3" placeholder="Judul">
+    <input type="text" class="title col-12 my-3" placeholder="Judul" [(ngModel)]="post.judulPost">
 
     <div>
       <div class="col-12 d-flex justify-content-end" *ngIf="upload==true">
@@ -21,19 +21,25 @@
       </label>
     </div>
     <input type="file" multiple="multiple" accept=".png,.jpge/*" id="input-img" hidden name="imgFile"
-      (change)="onFileChange($event)">
+      (change)="onFileChange($event)" [(ngModel)]="post.fotoKonten">
     <!-- <textarea name="deskripsi" id="" rows="12" class="my-3 rounded-3">
     </textarea> -->
     <div class="overflow-hidden my-3">
       <ckeditor #editor [editor]=" Editor" [config]="{ placeholder:'Masukkan idemu...',toolbar: [ ] }"
-        aria-placeholder="asdjhiyu" class="my-3">
+        aria-placeholder="asdjhiyu" class="my-3" [(ngModel)]="post.deskripsi">
       </ckeditor>
     </div>
+    <!-- <div [innerHTML]="post.deskripsi"></div> -->
   </div>
 </div>
 
 <ng-template #uploadImg>
   <div class="rounded-3 overflow-hidden ">
-    <img [src]="ImageUrl" class="img-fluid col-12" style="height: 300px;">
+    <img [src]="post.fotoKonten" class="img-fluid col-12" style="height: 300px;">
   </div>
 </ng-template>
+
+
+<small>
+  {{ post|json }}
+</small>

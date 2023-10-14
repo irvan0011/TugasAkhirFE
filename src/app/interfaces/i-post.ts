@@ -1,12 +1,12 @@
-import { IUser } from "./i-user";
+import { IUser } from './i-user';
 
 export interface IPost {
-  idPost?: String;
+  idPost?: Number;
   judulPost?: String;
   email?: String;
   deskripsi?: String;
   upvote?: number;
   fotoKonten?: String;
-  tanggalPost: String;
-  user: IUser;
+  tanggalPost?: Date;
+  user?: IUser;
 }

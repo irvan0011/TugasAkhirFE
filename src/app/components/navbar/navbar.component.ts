@@ -1,5 +1,14 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Output,
+  Input,
+} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { IPost } from 'src/app/interfaces/i-post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +20,6 @@ export class NavbarComponent {
   isProfileMenuOpen: boolean = false;
   currentRoute?: string;
   showButtonSimpan: Boolean;
-
   fixedRoutes: string[];
   includeRoutes: string[];
   constructor(private el: ElementRef, private router: Router) {
@@ -40,5 +48,13 @@ export class NavbarComponent {
       this.isMobileMenuOpen = false;
       this.isProfileMenuOpen = false;
     }
+  }
+
+  @Input() item = '';
+  add: Boolean = true;
+  @Output() data = new EventEmitter<Boolean>();
+
+  addPost() {
+    this.data.emit(this.add);
   }
 }

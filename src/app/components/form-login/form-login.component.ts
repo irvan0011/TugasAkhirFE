@@ -23,7 +23,8 @@ export class FormLoginComponent {
       .pipe(catchError(this.handleError))
       .subscribe((respon: any) => {
         this.resultLogin = respon;
-        localStorage.setItem('token', this.resultLogin.data);
+        localStorage.setItem('token', this.resultLogin.data.token);
+        localStorage.setItem('userid', this.resultLogin.data.id);
         this.router.navigate(['/postadd']);
       });
   }
