@@ -48,7 +48,8 @@
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <div class="flex items-center mr-5" *ngIf="showButtonSimpan==true">
-          <button class="bg-blue-400 text-white text-xs font-bold rounded-lg px-3 py-2 shadow-md">SIMPAN</button>
+          <button class="bg-blue-400 text-white text-xs font-bold rounded-lg px-3 py-2 shadow-md"
+            (click)="addPost()">SIMPAN</button>
         </div>
 
         <div class="flex items-center mr-5" *ngIf="showButtonSimpan==false">
