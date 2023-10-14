@@ -20,6 +20,10 @@ import { CardPeringkatComponent } from './components/card-peringkat/card-peringk
 import { CardPreviewPostComponent } from './components/card-preview-post/card-preview-post.component';
 import { ReplySidebarComponent } from './components/reply-sidebar/reply-sidebar.component';
 
+import { AddPostComponent } from './page/add-post/add-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +38,7 @@ import { ReplySidebarComponent } from './components/reply-sidebar/reply-sidebar.
     CardPeringkatComponent,
     CardPreviewPostComponent,
     ReplySidebarComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +46,10 @@ import { ReplySidebarComponent } from './components/reply-sidebar/reply-sidebar.
     NgbModule,
     HttpClientModule,
     FormsModule,
+    EditorModule,
+    CKEditorModule,
   ],
-  providers: [LoginService, HomeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

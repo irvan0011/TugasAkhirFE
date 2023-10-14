@@ -1,16 +1,29 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
   isMobileMenuOpen: boolean = false;
   isProfileMenuOpen: boolean = false;
+  currentRoute?: string;
+  showButtonSimpan: Boolean;
 
-  constructor(private el: ElementRef) {}
-
+  fixedRoutes: string[];
+  includeRoutes: string[];
+  constructor(private el: ElementRef, private router: Router) {
+    this.fixedRoutes = [''];
+    this.includeRoutes = ['/postadd'];
+    this.currentRoute = this.router.url;
+    if (this.currentRoute == '/postadd') {
+      this.showButtonSimpan = true;
+    } else {
+      this.showButtonSimpan = false;
+    }
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -28,5 +41,4 @@ export class NavbarComponent {
       this.isProfileMenuOpen = false;
     }
   }
-  
 }
