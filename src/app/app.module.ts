@@ -17,6 +17,8 @@ import { PostComponent } from './post/post.component';
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DetailPostComponent } from './pages/detail-post/detail-post.component';
 import { CardPeringkatComponent } from './components/card-peringkat/card-peringkat.component';
+import { CardPreviewPostComponent } from './components/card-preview-post/card-preview-post.component';
+import { ReplySidebarComponent } from './components/reply-sidebar/reply-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CardPeringkatComponent } from './components/card-peringkat/card-peringk
     CardPostComponent,
     DetailPostComponent,
     CardPeringkatComponent,
+    CardPreviewPostComponent,
+    ReplySidebarComponent,
   ],
   imports: [
     BrowserModule,
