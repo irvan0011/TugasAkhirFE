@@ -10,8 +10,20 @@ export class NavbarComponent {
   isMobileMenuOpen: boolean = false;
   isProfileMenuOpen: boolean = false;
   currentRoute?: string;
+  showButtonSimpan: Boolean;
 
-  constructor(private el: ElementRef, private router: Router) {}
+  fixedRoutes: string[];
+  includeRoutes: string[];
+  constructor(private el: ElementRef, private router: Router) {
+    this.fixedRoutes = [''];
+    this.includeRoutes = ['/postadd'];
+    this.currentRoute = this.router.url;
+    if (this.currentRoute == '/postadd') {
+      this.showButtonSimpan = true;
+    } else {
+      this.showButtonSimpan = false;
+    }
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

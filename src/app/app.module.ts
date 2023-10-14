@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { PostComponent } from './post/post.component';
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DetailPostComponent } from './pages/detail-post/detail-post.component';
+import { CardPeringkatComponent } from './components/card-peringkat/card-peringkat.component';
+
 import { AddPostComponent } from './page/add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -31,6 +33,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     PostComponent,
     CardPostComponent,
     DetailPostComponent,
+    CardPeringkatComponent,
     AddPostComponent,
   ],
   imports: [

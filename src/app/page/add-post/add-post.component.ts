@@ -16,10 +16,6 @@ export class AddPostComponent {
   constructor() {
     this.upload = false;
   }
-  handleUpload(e: any): void {
-    this.upload = true;
-    this.logo = e.target.value;
-  }
   public ImageUrl = '';
   public FileImage: any;
 
@@ -29,8 +25,13 @@ export class AddPostComponent {
     reader.onload = (event: any) => {
       this.ImageUrl = event.target.result;
     };
-
     this.upload = true;
     reader.readAsDataURL(this.FileImage);
+    console.log(this.FileImage);
+  }
+  close() {
+    this.upload = false;
+    this.FileImage = null;
+    console.log(this.FileImage);
   }
 }

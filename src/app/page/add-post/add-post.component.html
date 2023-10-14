@@ -2,13 +2,24 @@
 <div class="container d-flex justify-content-center">
   <div class="col-sm-12 col-lg-8">
     <input type="text" class="title col-12 my-3" placeholder="Judul">
-    <label for="input-img" class="col-12">
-      <div class="card col-12 d-flex justify-content-center align-items-center"
-        style="height: 300px; box-sizing: border-box !important; background-color: #F5F5F4;"
-        *ngIf="upload==false;else uploadImg">
-        <img src="../../../assets/img/camera.svg" class="img-fluid" height="50px" width="50px">
+
+    <div>
+      <div class="col-12 d-flex justify-content-end" *ngIf="upload==true">
+        <button style="position: absolute; background-color: #0200003c;z-index: 10;" (click)="close()"
+          class="border-0 px-2 pb-1 rounded-3 m-1">
+          <svg width="15" height="15" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L26 26M1 26L26 1L1 26Z" stroke="white" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
       </div>
-    </label>
+      <label for="input-img" class=" card col-12 d-flex justify-content-center align-items-center"
+        style="height: 300px; box-sizing: border-box !important; background-color: #F5F5F4;">
+        <div *ngIf="upload==false;else uploadImg">
+          <img src="../../../assets/img/camera.svg" class="img-fluid" height="50px" width="50px">
+        </div>
+      </label>
+    </div>
     <input type="file" multiple="multiple" accept=".png,.jpge/*" id="input-img" hidden name="imgFile"
       (change)="onFileChange($event)">
     <!-- <textarea name="deskripsi" id="" rows="12" class="my-3 rounded-3">
@@ -22,5 +33,7 @@
 </div>
 
 <ng-template #uploadImg>
-  <img [src]="ImageUrl" class="img-fluid col-12" style="height: 300px;">
+  <div class="rounded-3 overflow-hidden ">
+    <img [src]="ImageUrl" class="img-fluid col-12" style="height: 300px;">
+  </div>
 </ng-template>
