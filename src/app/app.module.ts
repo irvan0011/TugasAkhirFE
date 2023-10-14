@@ -18,6 +18,10 @@ import { CardPostComponent } from './components/card-post/card-post.component';
 import { DetailPostComponent } from './pages/detail-post/detail-post.component';
 import { CardPeringkatComponent } from './components/card-peringkat/card-peringkat.component';
 
+import { AddPostComponent } from './page/add-post/add-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,7 @@ import { CardPeringkatComponent } from './components/card-peringkat/card-peringk
     CardPostComponent,
     DetailPostComponent,
     CardPeringkatComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +42,10 @@ import { CardPeringkatComponent } from './components/card-peringkat/card-peringk
     NgbModule,
     HttpClientModule,
     FormsModule,
+    EditorModule,
+    CKEditorModule,
   ],
-  providers: [LoginService, HomeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

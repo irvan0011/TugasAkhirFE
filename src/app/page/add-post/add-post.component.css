@@ -1,0 +1,22 @@
+.title {
+  font-size: 80px;
+  font-family: "Poppins";
+  font-weight: 500;
+  line-height: 120px;
+  color: #A1A1AA;
+  border: unset;
+}
+.title:focus {
+  border: unset !important;
+  outline: unset;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 500px;
+  border: unset !important;
+  margin-top: -5px !important;
+}
+:host ::ng-deep .ck-editor__editable_inline:focus {
+  border: unset !important;
+  box-shadow: none !important;
+}/*# sourceMappingURL=add-post.component.css.map */
