@@ -1,9 +1,18 @@
-<div class="flex h-full w-full justify-center">
-    <div class="flex flex-col w-1/2 mt-5">
-        <div>
+<app-navbar class="w-full fixed z-20"></app-navbar>
+
+<app-reply-sidebar class="fixed top-0 right-0 w-full h-full z-30" 
+        [isOpenSidebar]="isOpenSidebar" 
+        [ngClass]="{'': isOpenSidebar, 'hidden': !isOpenSidebar}"
+        (dismissSidebarFunction)="dismissSidebar()"
+        (openSidebarFunction)="openSidebar()">
+</app-reply-sidebar>
+
+<div class=" flex flex-col h-full w-full pt-28 pb-16">
+    <div class="flex flex-col w-1/2  self-center">
+        <div #element1>
             <p class="text-gray-700 text-6xl leading-snug">Lorem Ipsum Dolor Sit Amet</p>
         </div>
-        <div class="flex flex-row mt-3 mb-4">
+        <div #element2 class="flex flex-row mt-3 mb-4">
             <div>
                 <p class="text-gray-400">oleh <span class="font-semibold">Christina</span></p>
             </div>
@@ -11,10 +20,10 @@
                 <p class="text-gray-400">12 January</p>
             </div>
         </div>
-        <div class="w-auto h-1/2 rounded-md overflow-hidden">
+        <div #element3 class="w-auto h-1/2 rounded-md overflow-hidden">
             <img src="assets/img/pic_placeholder.jpg" alt="Post Image" class="w-full h-full object-cover">
         </div>
-        <div class="mt-4">
+        <div #element4 class="mt-4">
             <p class="text-gray-700 text-base">
                 <span class="font-semibold">The standard Lorem Ipsum passage, used since the 1500s</span><br>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -44,18 +53,60 @@
                 eum fugiat quo voluptas nulla pariatur?"
             </p>
         </div>
-        <div class="flex flex-row space-x-5 mt-5 mb-5">
-            <div class="bg-gray-100 rounded-lg px-4 py-2">
+        <div (click)="openSidebar()" class="flex flex-row space-x-5 mt-5 mb-4 fixed bottom-0 left-1/4 -ml-60"
+            [class.stuck]="isStuck">
+            <div class="bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 cursor-pointer">
                 <img class="w-4 h-4 inline" src="assets/img/reply.svg">
                 <span class="text-gray-400 inline ml-2">124</span>
-                <span class="text-gray-400 inline ml-1">Komentar</span>
             </div>
 
-            <div class="bg-gray-100 rounded-lg px-4 py-2">
+            <div class="bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 cursor-pointer">
                 <img class="w-4 h-4 inline mb-1" src="assets/img/upvote.svg">
                 <span class="text-gray-400 inline ml-2">23</span>
-                <span class="text-gray-400 inline ml-1">Upvotes</span>
             </div>
         </div>
     </div>
-</div>
+
+    <div #element5 class="border-b border-gray-300 mt-5 mb-5"></div>
+
+    <div #element6 class="mt-4">
+        <div class="">
+            <span class="text-3xl font-medium text-gray-700  pl-32">Baca Lainnya</span>
+        </div>
+        <div class="relative w-full h-auto overflow-x-hidden pb-0">
+            <div id="scrollContainer" class="flex w-full overflow-x-scroll scroll-snap-x-mandatory pl-32">
+                <!-- Cards here -->
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+                <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+            </div>
+            <button (click)="scrollLeft()"
+                class="absolute -m  top-1/2 ml-20 transform -translate-y-1/2 p-4 bg-gray-200/60 backdrop-blur-sm rounded-full text-gray-600 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button (click)="scrollRight()"
+                class="absolute right-0 top-1/2 mr-16 transform -translate-y-1/2 p-4 bg-gray-200/60 backdrop-blur-sm  rounded-full text-gray-600 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div id="backToTopButton" class="flex items-center mx-auto mt-60 cursor-pointer">
+        <span class="text-3xl font-medium text-gray-700">Kembali ke atas</span>
+        <img class="inline h-4 w-4 ml-3 mb-2" src="assets/img/chevron_up.svg">
+    </div>
+    </div>

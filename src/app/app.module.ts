@@ -13,16 +13,16 @@ import { LoginService } from './services/login.service';
 import { HomeService } from './services/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PostComponent } from './post/post.component';
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DetailPostComponent } from './pages/detail-post/detail-post.component';
 import { CardPeringkatComponent } from './components/card-peringkat/card-peringkat.component';
 import { CardPreviewPostComponent } from './components/card-preview-post/card-preview-post.component';
 import { ReplySidebarComponent } from './components/reply-sidebar/reply-sidebar.component';
 
-import { AddPostComponent } from './page/add-post/add-post.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +32,13 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     FormLoginComponent,
     FormRegisterComponent,
     NavbarComponent,
-    PostComponent,
     CardPostComponent,
     DetailPostComponent,
     CardPeringkatComponent,
     CardPreviewPostComponent,
     ReplySidebarComponent,
     AddPostComponent,
+    LeaderboardComponent,
   ],
   imports: [
     BrowserModule,

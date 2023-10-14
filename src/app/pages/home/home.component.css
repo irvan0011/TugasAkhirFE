@@ -1,1 +1,14 @@
-/*# sourceMappingURL=home.component.css.map */
+/* my-component.styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'typeface-poppins';
+
+/* Add custom Tailwind classes and styles for your component here */
+
+a,
+p,
+span,
+button {
+  font-family: 'Poppins', sans-serif;
+}
