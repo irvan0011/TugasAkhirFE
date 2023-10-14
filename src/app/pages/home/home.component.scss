@@ -3,10 +3,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'typeface-poppins';
-//@import 'typeface-poppins';
+@import 'typeface-poppins';
 
-/* Add custom Tailwind classes and styles for your component here */
+a,
+p,
+span,
+button {
+  font-family: 'Poppins', sans-serif;
+}
 
-// * {
-//     font-family: 'Poppins', sans-serif;
-//   }
+.stuck {
+    position: sticky;
+    bottom: 0;
+}

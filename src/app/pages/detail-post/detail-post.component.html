@@ -53,9 +53,9 @@
                 eum fugiat quo voluptas nulla pariatur?"
             </p>
         </div>
-        <div (click)="openSidebar()" class="flex flex-row space-x-5 mt-5 mb-4 fixed bottom-0 left-1/4 -ml-60"
+        <div class="flex flex-row space-x-5 mt-5 mb-4 fixed bottom-0 left-1/4 -ml-60"
             [class.stuck]="isStuck">
-            <div class="bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 cursor-pointer">
+            <div (click)="openSidebar()"  class="bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 cursor-pointer">
                 <img class="w-4 h-4 inline" src="assets/img/reply.svg">
                 <span class="text-gray-400 inline ml-2">124</span>
             </div>

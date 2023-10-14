@@ -1,0 +1,18 @@
+/* my-component.styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'typeface-poppins';
+@import 'typeface-poppins';
+
+a,
+p,
+span,
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+.stuck {
+    position: sticky;
+    bottom: 0;
+}

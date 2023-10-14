@@ -5,6 +5,7 @@ import {
   HostListener,
   Output,
   Input,
+  Renderer2,
 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IPost } from 'src/app/interfaces/i-post';
@@ -22,7 +23,8 @@ export class NavbarComponent {
   showButtonSimpan: Boolean;
   fixedRoutes: string[];
   includeRoutes: string[];
-  constructor(private el: ElementRef, private router: Router) {
+
+  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {
     this.fixedRoutes = [''];
     this.includeRoutes = ['/postadd'];
     this.currentRoute = this.router.url;
@@ -57,4 +59,5 @@ export class NavbarComponent {
   addPost() {
     this.data.emit(this.add);
   }
+  
 }

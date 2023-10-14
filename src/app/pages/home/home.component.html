@@ -1,2 +1,70 @@
-<app-navbar></app-navbar>
-<app-card-post></app-card-post>
+<app-navbar class="w-full h-auto fixed"></app-navbar>
+<div class="flex flex-row px-36 mt-16">
+    <div class="flex flex-col w-2/3 h-auto overflow-y-auto pb-48 mr-20">
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+        <app-card-post class="mt-10"></app-card-post>
+    </div>
+    <div #sideBar [class.stuck]="isStuck" class="flex flex-col border border-gray-400 rounded-lg w-1/3 h-fit overflow-y-auto mt-10 mb-24 px-12 pt-10 pb-12">
+        <div class="">
+            <span class="text-gray-700 font-semibold text-2xl">Terpopuler</span>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#1</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#2</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#3</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#4</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#5</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#6</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#7</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#8</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#9</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+        <div class="flex flex-col mt-6 cursor-pointer">
+            <span class="text-base text-blue-400 font-medium">#10</span>
+            <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
+            <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+        </div>
+    </div>
+</div>

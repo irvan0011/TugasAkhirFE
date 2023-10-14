@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-post',
@@ -11,13 +12,42 @@ export class DetailPostComponent {
   scrollY = 0;
   isOpenSidebar: boolean = false;
 
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+    // Access the query parameter from the route
+    this.route.queryParams.subscribe((params) => {
+      if (params['showReplies'] === 'true') {
+        // Button was clicked in the previous page
+        // Set isOpenSidebar to true
+        this.isOpenSidebar = true;
+      }
+    });
+
+  }
   openSidebar() {
     this.isOpenSidebar = true;
+    
+    this.router.navigate([], {
+      queryParams: {
+        'showReplies': 'true'
+      },
+      queryParamsHandling: 'merge'
+    })
   }
 
   dismissSidebar() {
     this.isOpenSidebar = false;
+
+    this.router.navigate([], {
+      queryParams: {
+        'showReplies': null
+      },
+      queryParamsHandling: 'merge'
+    })
   }
+
+
 
   @ViewChild('element1', { static: true })
   element1!: ElementRef;
@@ -44,7 +74,7 @@ export class DetailPostComponent {
     const element5Height = this.element5.nativeElement.clientHeight;
     const element6Height = this.element6.nativeElement.clientHeight;
 
-    if (this.scrollY >= (element1Height+element2Height+element3Height+element4Height-element5Height-element6Height-100)) {
+    if (this.scrollY >= (element1Height + element2Height + element3Height + element4Height - element5Height - element6Height - 100)) {
       this.isStuck = true;
     } else {
       this.isStuck = false;
@@ -53,7 +83,7 @@ export class DetailPostComponent {
 
   ngAfterViewInit(): void {
     const backToTopButton = document.getElementById('backToTopButton');
-    
+
     // Show the button when the user scrolls down 20px from the top
     window.onscroll = function () {
       if (backToTopButton != null) {
