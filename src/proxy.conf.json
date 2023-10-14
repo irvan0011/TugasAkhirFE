@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://8c0a-103-8-185-130.ngrok-free.app/api",
+        "target": "http://localhost:8080/api",
         "secure": false,
         "pathRewrite": {
             "^/api": ""
