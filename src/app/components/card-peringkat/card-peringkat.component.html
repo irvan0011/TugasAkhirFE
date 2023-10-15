@@ -1,22 +1,24 @@
 <!-- <div class="flex flex-col space-y-28 h-auto w-auto"> -->
-    <div class="relative">
-        <div class="h-24 w-64 bg-gray-100 absolute top-0 left-0 rounded-xl overflow-hidden">
-            <div class="h-full w-full absolute top-0 left-0">
-                <div class="float-left h-full aspect-square bg-blue-200"></div>
-                <div style="width: calc(120/347*100%);" class="float-left h-full bg-blue-200 "></div>
+<div class="relative">
+    <div class="h-24 w-64 bg-gray-100 absolute top-0 left-0 rounded-xl overflow-hidden">
+        <div class="h-full w-full absolute top-0 left-0 flex flex-row">
+            <div class="h-full aspect-square bg-blue-200"></div>
+            <!-- <div [style.width.%]="(value / maxValue) * 100" class="h-full bg-blue-200 "></div> -->
+            <div style="width: calc((125/ 345) *(100% - 96px));" class="h-full bg-blue-200 "></div>
+        </div>
+
+        <div class="h-full w-full flex items-center absolute top-0 left-0">
+            <div style="height: calc(100% - 16px);"
+                class="m-2 flex items-center justify-center aspect-square bg-white rounded-xl">
+                <p class="text-3xl font-semibold text-blue-400">1</p>
             </div>
-            <div class="h-full w-full flex items-center absolute top-0 left-0">
-                <div style="height: calc(100% - 16px);"
-                    class="m-2 flex items-center justify-center aspect-square bg-white rounded-xl">
-                    <p class="text-3xl font-semibold text-blue-400">1</p>
-                </div>
-                <div class="h-auto flex flex-col space-y-2">
-                    <p class="text-lg text-gray-700 ml-2">Christina</p>
-                    <p class="text-sm font-bold text-gray-700 ml-2">456 votes</p>
-                </div>
+            <div class="h-auto flex flex-col space-y-2">
+                <p class="text-lg text-gray-700 ml-2">Christina</p>
+                <p class="text-sm font-bold text-gray-700 ml-2">456 votes</p>
             </div>
         </div>
     </div>
+</div>
 <!-- 
     <div class="relative">
         <div class="h-24 w-64 bg-gray-100 absolute top-0 left-0 rounded-xl overflow-hidden">
