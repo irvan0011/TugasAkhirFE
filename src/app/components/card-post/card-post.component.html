@@ -1,4 +1,4 @@
-<div class="w-50 flex flex-col">
+<div class="flex flex-col">
     <!-- card head -->
     <div class="flex flex-row items-center">
         <div class="w-12 h-12 rounded-full overflow-hidden">
@@ -10,14 +10,14 @@
         <div>
             <p class="text-sm text-gray-400 ml-3">12 Jan</p>
         </div>
-        <div class="w-8 h-8 ml-auto">
+        <div class="w-8 h-8 ml-auto cursor-pointer">
             <img src="assets/img/close.svg" alt="Close" class="w-full h-full object-cover">
         </div>
     </div>
 
     <!-- card body -->
     <div class="flex-auto flex-col">
-        
+
         <div class="px-4 py-1 mt-3 bg-yellow-500 rounded-full inline-flex">
             <p class="text-xs text-white font-light">Peringkat 1</p>
         </div>
@@ -25,31 +25,72 @@
             <p class="text-lg font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
         <div class="mt-1">
-            <p class="text-sm inline"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p> 
-            <p class="text-sm inline">... </p> <a class="text-sm text-blue-500 inline">Lihat semua</a>
+            <p class="text-sm inline"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+            <p class="text-sm inline ">... </p> <a class="text-sm text-blue-500 inline cursor-pointer">Lihat semua</a>
         </div>
         <div class="w-auto h-72 rounded-md overflow-hidden mt-3">
             <img src="assets/img/ava_placeholder.jpg" alt="Profile Image" class="w-full h-full object-cover">
         </div>
-        
+
     </div>
 
     <!-- card footer -->
     <div class="flex flex-col mt-3">
         <div class="flex flex-row space-x-3">
-            <div class="bg-gray-100 rounded-lg px-3 py-2">
+            <div (click)="showReplyPreview()" class="border border-gray-400 bg-gray-100 rounded-lg px-3 py-1 cursor-pointer">
                 <img class="w-4 h-4 inline" src="assets/img/reply.svg">
-                <span class="text-gray-400 inline ml-2">124</span>    
+                <span class="text-sm text-gray-400 inline ml-2">124</span>
             </div>
-            
-            <div class="bg-gray-100 rounded-lg px-3 py-2">
+
+            <div class="border border-gray-400 bg-gray-100 rounded-lg px-3 py-1 cursor-pointer">
                 <img class="w-4 h-4 inline mb-1" src="assets/img/upvote.svg">
-                <span class="text-gray-400 inline ml-2">23</span>    
+                <span class="text-sm text-gray-400 inline ml-2">23</span>
             </div>
         </div>
         <div class="border-b border-gray-300 pb-2 flex items-center mt-3">
             <input class="w-full focus:outline-none" placeholder="Tulis balasan...">
-            <img class="ml-2 w-5 h-5" src="assets/img/send.svg">
+            <img class="ml-2 w-5 h-5 cursor-pointer" src="assets/img/send.svg">
         </div>
+    </div>
+
+    <!-- replies -->
+
+    <div *ngFor="let reply of replyPreviews | slice:0:shownReplies" class="flex flex-row mt-2 items-start">
+        <div class="flex">
+            <div class="w-10 h-10 rounded-full overflow-hidden mt-2">
+                <img src="assets/img/ava_placeholder.jpg" alt="Profile Image" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <div class="flex flex-row items-center">
+                <div>
+                    <span class="text-xs font-medium ml-3">{{ reply.name }}</span>
+                </div>
+                <div>
+                    <span class="text-xs text-gray-400 ml-3">{{ reply.date }}</span>
+                </div>
+                <div class="w-8 h-8 ml-auto cursor-pointer">
+                    <img src="assets/img/close.svg" alt="Close" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="ml-3">
+                <p class="text-gray-700 text-sm inline"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button expand -->
+    <div (click)="showMoreReply()" class="cursor-pointer w-full rounded-md bg-gray-100 flex justify-center items-center py-3 mt-3" [ngClass]="{'hidden': !isReplyPreviewShown}">
+        <span class="text-sm text-blue-400 font-medium">Balasan lain</span>
+    </div>
+
+    <!-- Button go to detail page -->
+    <div (click)="navigateToDetailPost()" class="cursor-pointer w-full rounded-md bg-gray-100 flex justify-center items-center py-3 mt-3" [ngClass]="{'hidden': !isReplyPreviewMax}">
+        <span class="text-sm text-blue-400 font-medium">Lihat semua</span>
     </div>
 </div>

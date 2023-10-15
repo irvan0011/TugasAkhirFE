@@ -1,4 +1,4 @@
-<nav class="bg-white border-bottom border-gray-400">
+<nav class="bg-white/70 backdrop-blur-md border-bottom border-gray-400">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -29,7 +29,7 @@
         </button>
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 ml-3 items-center">
+        <div routerLink="/" class="flex flex-shrink-0 ml-3 items-center cursor-pointer">
           <!-- Logo -->
           <img class="h-4 w-auto" src="assets/img/logo.svg" alt="Your Company">
         </div>
@@ -37,10 +37,10 @@
           <div class="flex justify-center space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <!-- <a href="#" class="flex-1 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
-            <a href="#"
-              class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md px-4 py-2 text-sm font-medium"
-              routerLink="">Home</a>
-            <a href="#"
+            <a  routerLinkActive="bg-gray-100 text-gray-900"
+              class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md px-4 py-2 text-sm font-medium" 
+              routerLink="/home">Home</a>
+            <a routerLinkActive="bg-gray-100 text-gray-900"
               class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md px-4 py-2 text-sm font-medium"
               routerLink="/leaderboard">Leaderboard</a>
           </div>
@@ -52,9 +52,9 @@
             (click)="addPost()">SIMPAN</button>
         </div>
 
-        <div class="flex items-center mr-5" *ngIf="showButtonSimpan==false">
+        <div class="flex items-center mr-5 cursor-pointer" *ngIf="showButtonSimpan==false" routerLink="/postadd">
           <img class="w-6 h-6 mr-1" src="assets/img/pencil.svg">
-          <a class="text-xs font-semibold text-blue-400" routerLink="/postadd">TULIS POST</a>
+          <a class="text-xs font-semibold text-blue-400">TULIS POST</a>
         </div>
 
         <!-- Profile dropdown -->
@@ -100,9 +100,9 @@
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <!-- <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a> -->
       <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a> -->
-      <a href="#"
+      <a routeLink="/"
         class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block rounded-md px-3 py-2 text-base font-medium">Home</a>
-      <a href="#"
+      <a routeLink="/leaderboard"
         class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block rounded-md px-3 py-2 text-base font-medium">Leaderboard</a>
     </div>
   </div>
