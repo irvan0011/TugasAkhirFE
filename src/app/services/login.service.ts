@@ -24,7 +24,6 @@ export class LoginService {
     const headers = {
       'Content-Type': 'application/json',
     };
-    console.log(user);
 
     return this.http.post<IRegister>(
       `${environment.baseURL}/op/v1/regis`,

@@ -1,8 +1,10 @@
+import { IPost } from './i-post';
+import { IUser } from './i-user';
+
 export interface IReply {
-    idReply?: String;
-    comment?: String;
-    idUser?: String;
-    idPost?: String;
-    tanggalReply?: String;
-  }
-  
+  idReply?: Number;
+  comment?: String;
+  user?: IUser;
+  post?: IPost;
+  tanggalReply?: Date;
+}

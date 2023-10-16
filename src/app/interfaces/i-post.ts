@@ -1,3 +1,5 @@
+import { List } from 'postcss/lib/list';
+import { IReply } from './i-reply';
 import { IUser } from './i-user';
 
 export interface IPost {
@@ -6,7 +8,8 @@ export interface IPost {
   email?: String;
   deskripsi?: String;
   upvote?: number;
-  fotoKonten?: String;
+  listReply?: Array<IReply>;
+  fotoKonten?: String | null;
   tanggalPost?: Date;
   user?: IUser;
 }

@@ -1,5 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
@@ -58,7 +66,7 @@ export class AddPostComponent implements OnInit {
   }
   close() {
     this.upload = false;
-    this.FileImage = null;
+    this.post.fotoKonten = null;
   }
   result: any;
   addPost(data: any) {
@@ -68,7 +76,7 @@ export class AddPostComponent implements OnInit {
         .pipe(catchError(this.handleError))
         .subscribe((respon: any) => {
           this.result = respon;
-          this.router.navigate(['/postadd']);
+          this.router.navigate(['']);
         });
     } else {
       console.log('error');

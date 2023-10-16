@@ -1,20 +1,45 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
+import { IPost } from 'src/app/interfaces/i-post';
+import { IVote } from 'src/app/interfaces/i-vote';
+import { Post } from 'src/app/models/post';
+import { Reply } from 'src/app/models/reply';
+import { Vote } from 'src/app/models/vote';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-detail-post',
   templateUrl: './detail-post.component.html',
-  styleUrls: ['./detail-post.component.scss']
+  styleUrls: ['./detail-post.component.scss'],
 })
-export class DetailPostComponent {
-
+export class DetailPostComponent implements OnInit {
   isStuck = false;
   scrollY = 0;
   isOpenSidebar: boolean = false;
-
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  vote: IVote;
+  id: Number = Number(this.route.snapshot.params['id']);
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private postService: PostService
+  ) {
+    this.vote = new Vote();
+    this.result = new Post();
+    this.result.listReply = new Array<Reply>();
+  }
 
   ngOnInit() {
+    // console.log(Number(this.route.snapshot.params['id']));
+    this.getById();
+
     // Access the query parameter from the route
     this.route.queryParams.subscribe((params) => {
       if (params['showReplies'] === 'true') {
@@ -23,17 +48,16 @@ export class DetailPostComponent {
         this.isOpenSidebar = true;
       }
     });
-
   }
   openSidebar() {
     this.isOpenSidebar = true;
-    
+
     this.router.navigate([], {
       queryParams: {
-        'showReplies': 'true'
+        showReplies: 'true',
       },
-      queryParamsHandling: 'merge'
-    })
+      queryParamsHandling: 'merge',
+    });
   }
 
   dismissSidebar() {
@@ -41,13 +65,11 @@ export class DetailPostComponent {
 
     this.router.navigate([], {
       queryParams: {
-        'showReplies': null
+        showReplies: null,
       },
-      queryParamsHandling: 'merge'
-    })
+      queryParamsHandling: 'merge',
+    });
   }
-
-
 
   @ViewChild('element1', { static: true })
   element1!: ElementRef;
@@ -62,7 +84,6 @@ export class DetailPostComponent {
   @ViewChild('element6', { static: true })
   element6!: ElementRef;
 
-
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
     this.scrollY = window.scrollY;
@@ -74,7 +95,16 @@ export class DetailPostComponent {
     const element5Height = this.element5.nativeElement.clientHeight;
     const element6Height = this.element6.nativeElement.clientHeight;
 
-    if (this.scrollY >= (element1Height + element2Height + element3Height + element4Height - element5Height - element6Height - 100)) {
+    if (
+      this.scrollY >=
+      element1Height +
+        element2Height +
+        element3Height +
+        element4Height -
+        element5Height -
+        element6Height -
+        100
+    ) {
       this.isStuck = true;
     } else {
       this.isStuck = false;
@@ -119,7 +149,45 @@ export class DetailPostComponent {
         left: scrollContainer.clientWidth,
         behavior: 'smooth',
       });
-
     }
+  }
+
+  voteResult: any;
+  isvote() {
+    this.vote!.post!.idPost = this.id;
+    console.log(this.vote);
+    this.postService
+      .vote(this.vote)
+      .pipe(catchError(this.handleError))
+      .subscribe((respon: any) => {
+        this.voteResult = respon;
+        this.getById();
+      });
+  }
+  result: IPost;
+  getById() {
+    this.postService
+      .getById(this.id)
+      .pipe(catchError(this.handleError))
+      .subscribe((respon: any) => {
+        this.result = respon.data;
+      });
+  }
+
+  public handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
+      );
+    }
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 }

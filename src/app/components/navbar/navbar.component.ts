@@ -24,7 +24,11 @@ export class NavbarComponent {
   fixedRoutes: string[];
   includeRoutes: string[];
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private router: Router
+  ) {
     this.fixedRoutes = [''];
     this.includeRoutes = ['/postadd'];
     this.currentRoute = this.router.url;
@@ -59,5 +63,4 @@ export class NavbarComponent {
   addPost() {
     this.data.emit(this.add);
   }
-  
 }
