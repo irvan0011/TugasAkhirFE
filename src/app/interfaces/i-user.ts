@@ -3,7 +3,7 @@ export interface IUser {
   userName?: String;
   email?: String;
   password?: String;
-  nama?: String;
+  name?: String;
   fotoUser?: String;
   jenisKelamin?: String;
   token?: String;

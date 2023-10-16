@@ -1,7 +1,9 @@
+import { IPost } from './i-post';
+import { IUser } from './i-user';
+
 export interface IVote {
-    idVote?: String;
-    idPost?: String;
-    idUser?: String;
-    isVote?: boolean;
-  }
-  
+  idVote?: Number;
+  post?: IPost;
+  user?: IUser;
+  isVote?: Boolean;
+}

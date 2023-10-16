@@ -1,7 +1,8 @@
-<app-navbar (data)="addPost($event)"></app-navbar>
+<app-navbar (data)="addPost($event)">
+</app-navbar>
 <div class="container d-flex justify-content-center">
   <div class="col-sm-12 col-lg-8">
-    <input type="text" class="title col-12 my-3" placeholder="Judul" [(ngModel)]="post.judulPost">
+    <input type="text" class="title col-12 my-3" placeholder="Judul" [(ngModel)]="post.judulPost" required>
 
     <div>
       <div class="col-12 d-flex justify-content-end" *ngIf="upload==true">
@@ -38,8 +39,3 @@
     <img [src]="post.fotoKonten" class="img-fluid col-12" style="height: 300px;">
   </div>
 </ng-template>
-
-
-<small>
-  {{ post|json }}
-</small>
