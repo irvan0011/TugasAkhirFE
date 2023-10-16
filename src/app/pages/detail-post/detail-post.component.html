@@ -49,16 +49,7 @@
     <div class="relative w-full h-auto overflow-x-hidden pb-0">
       <div id="scrollContainer" class="flex w-full overflow-x-scroll scroll-snap-x-mandatory pl-32">
         <!-- Cards here -->
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
-        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer"></app-card-preview-post>
+        <app-card-preview-post class="mr-10 mb-5 mt-5 cursor-pointer" [item]="result"></app-card-preview-post>
       </div>
       <button (click)="scrollLeft()"
         class="absolute -m  top-1/2 ml-20 transform -translate-y-1/2 p-4 bg-gray-200/60 backdrop-blur-sm rounded-full text-gray-600 hover:text-gray-800">

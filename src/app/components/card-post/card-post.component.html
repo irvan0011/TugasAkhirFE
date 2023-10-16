@@ -10,7 +10,7 @@
     <div>
       <p class="text-sm text-gray-400 ml-3">{{ item.tanggalPost| date : 'dd MMM'}} </p>
     </div>
-    <div class="w-8 h-8 ml-auto cursor-pointer" *ngIf="item.user?.idUser == userId">
+    <div class="w-8 h-8 ml-auto cursor-pointer" *ngIf="item.user?.idUser == userId" (click)="deletePost(item.idPost )">
       <img src="assets/img/close.svg" alt="Close" class="w-full h-full object-cover">
     </div>
   </div>
@@ -25,8 +25,8 @@
       <p class="text-lg font-medium">{{ item.judulPost }}</p>
     </div>
     <div class="mt-1">
-      <div [innerHTML]="item.deskripsi">
-      </div> <span class="text-sm inline ">... </span> <a class="text-sm text-blue-500 inline cursor-pointer">Lihat
+      <span [innerHTML]="hideDesk(item.deskripsi)">
+      </span><a class="text-sm text-blue-500 inline cursor-pointer" routerLink="" (click)="detail(item.idPost)">Lihat
         semua</a>
     </div>
     <div class="w-auto h-72 rounded-md overflow-hidden mt-3">
@@ -48,7 +48,7 @@
 
       <div class="border border-gray-400 bg-gray-100 rounded-lg px-3 py-1 cursor-pointer" (click)="isvote(item.idPost)">
         <img class="w-4 h-4 inline mb-1" src="assets/img/upvote.svg">
-        <span class="text-sm text-gray-400 inline ml-2">{{ item.upvote }}</span>
+        <span class="text-sm text-gray-400 inline ml-2" [(ngModel)]="item.upvote">{{ item.upvote }}</span>
       </div>
     </div>
     <form class="border-b border-gray-300 pb-2 flex items-center mt-3" (submit)="addReply(item)">

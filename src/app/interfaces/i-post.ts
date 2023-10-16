@@ -12,4 +12,5 @@ export interface IPost {
   fotoKonten?: String | null;
   tanggalPost?: Date;
   user?: IUser;
+  rank?: number;
 }

@@ -35,6 +35,18 @@ export class PostService {
       }
     );
   }
+  getPostTerpopuler(page: number): Observable<IPost[]> {
+    if (page == null) {
+      page = 1;
+    }
+    page = page - 1;
+    return this.http.get<IPost[]>(
+      `${this.apiUrl}fbp/${page}/10?col=upvote&val=`,
+      {
+        headers: this.headers,
+      }
+    );
+  }
   vote(data: IVote) {
     const body = JSON.stringify(data);
     return this.http.post<IVote>(`${environment.baseURL}vote/v1/sv`, body, {
@@ -68,6 +80,12 @@ export class PostService {
   getByUserId(data: any) {
     const body = JSON.stringify(data);
     return this.http.get<any>(`${environment.baseURL}post/v1/get/${data}`, {
+      headers: this.headers,
+    });
+  }
+  delete(data: any) {
+    const body = JSON.stringify(data);
+    return this.http.delete<any>(`${this.apiUrl}del/${data}`, {
       headers: this.headers,
     });
   }

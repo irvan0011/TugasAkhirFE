@@ -8,55 +8,11 @@
     <div class="">
       <span class="text-gray-700 font-semibold text-2xl">Terpopuler</span>
     </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#1</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#2</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#3</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#4</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#5</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#6</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#7</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#8</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#9</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
-    </div>
-    <div class="flex flex-col mt-6 cursor-pointer">
-      <span class="text-base text-blue-400 font-medium">#10</span>
-      <p class="text-base text-gray-700 font-medium mt-1">Lorem Ipsum Dolor Sit Amet</p>
-      <p class="text-sm text-gray-400 font-light mt-1">oleh Christina</p>
+    <div class="flex flex-col mt-6 cursor-pointer" *ngFor="let item of result; index as i;"
+      (click)="navigateToDetailPost(item.idPost)">
+      <span class="text-base text-blue-400 font-medium">#{{ i+1}}</span>
+      <p class="text-base text-gray-700 font-medium mt-1">{{ item.judulPost }}</p>
+      <p class="text-sm text-gray-400 font-light mt-1">oleh {{ item.user!.name }}</p>
     </div>
   </div>
 </div>
