@@ -1,5 +1,4 @@
-<app-navbar (data)="addPost($event)">
-</app-navbar>
+<app-navbar class="w-full h-auto fixed z-20" (data)="addPost($event)"></app-navbar>
 <div class="container d-flex justify-content-center">
   <div class="col-sm-12 col-lg-8">
     <input type="text" class="title col-12 my-3" placeholder="Judul" [(ngModel)]="post.judulPost" required>

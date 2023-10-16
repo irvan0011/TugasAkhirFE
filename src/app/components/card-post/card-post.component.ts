@@ -75,6 +75,10 @@ export class CardPostComponent implements OnInit {
       queryParams: { showReplies: 'true' },
     });
   }
+  detail(data: any) {
+    // Set the flag before navigating away
+    this.router.navigate([`/post/${data}`]);
+  }
 
   result?: Array<IPost>;
   ress: any;
@@ -83,8 +87,7 @@ export class CardPostComponent implements OnInit {
       .getPostTerbaru(data)
       .pipe(catchError(this.handleError))
       .subscribe((respon: any) => {
-        const res: any = respon.data.content;
-        this.result = res;
+        this.result = respon.data.content;
       });
   }
 
@@ -141,5 +144,20 @@ export class CardPostComponent implements OnInit {
         this.getPostTerbaru(1);
         this.reply = new Reply();
       });
+  }
+  deletePost(data: any) {
+    if (confirm('Hapus Postingan')) {
+      this.postService
+        .delete(data)
+        .pipe(catchError(this.handleError))
+        .subscribe((respon: any) => {
+          this.ress = respon.data;
+          this.getPostTerbaru(1);
+        });
+    } else {
+    }
+  }
+  hideDesk(data: any) {
+    return data.substr(0, 200);
   }
 }
