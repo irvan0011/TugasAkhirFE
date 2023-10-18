@@ -1,6 +1,7 @@
+import { NgIf } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { catchError, throwError } from 'rxjs';
 import { IPost } from 'src/app/interfaces/i-post';
@@ -20,7 +21,11 @@ export class CardPostComponent implements OnInit {
   vote: any;
   post: IPost;
   reply: IReply;
-  constructor(private router: Router, private postService: PostService) {
+  constructor(
+    private router: Router,
+    private postService: PostService,
+    private route: ActivatedRoute
+  ) {
     this.post = new Post();
     this.vote = new Vote();
     this.reply = new Reply();
@@ -47,8 +52,16 @@ export class CardPostComponent implements OnInit {
       comment: 'Ini komen hehehe',
     },
   ];
+
+  id: any = this.route.snapshot.url;
   ngOnInit(): void {
-    this.getPostTerbaru(1);
+    console.log(this.id);
+
+    if (this.id == 'leaderboard') {
+      this.getPostTerpopuler(1);
+    } else {
+      this.getPostTerbaru(1);
+    }
   }
 
   isReplyPreviewShown: boolean = false;
@@ -90,6 +103,14 @@ export class CardPostComponent implements OnInit {
         this.result = respon.data.content;
       });
   }
+  getPostTerpopuler(data: number) {
+    this.postService
+      .getPostTerpopuler(data)
+      .pipe(catchError(this.handleError))
+      .subscribe((respon: any) => {
+        this.result = respon.data.content;
+      });
+  }
 
   public handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -117,7 +138,11 @@ export class CardPostComponent implements OnInit {
       .pipe(catchError(this.handleError))
       .subscribe((respon: any) => {
         this.voteResult = respon;
-        this.getPostTerbaru(1);
+        if (this.id == 'leaderboard') {
+          this.getPostTerpopuler(1);
+        } else {
+          this.getPostTerbaru(1);
+        }
       });
   }
 
