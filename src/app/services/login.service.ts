@@ -14,9 +14,11 @@ export class LoginService {
   public login(user: ILogin): Observable<ILogin> {
     const headers = {
       'Content-Type': 'application/json',
+
+      'ngrok-skip-browser-warning': 'true',
     };
 
-    return this.http.post<ILogin>(`${environment.baseURL}/op/v1/gt`, user, {
+    return this.http.post<ILogin>(`${environment.baseURL}op/v1/gt`, user, {
       headers,
     });
   }
@@ -26,7 +28,7 @@ export class LoginService {
     };
 
     return this.http.post<IRegister>(
-      `${environment.baseURL}/op/v1/regis`,
+      `${environment.baseURL}op/v1/regis`,
       user,
       {
         headers,

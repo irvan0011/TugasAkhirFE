@@ -11,15 +11,16 @@ import { IReply } from '../interfaces/i-reply';
 })
 export class PostService {
   constructor(private http: HttpClient) {}
-  private apiUrl = environment.baseURL + '/post/v1/'; // Ganti dengan URL API sebenarnya jika digunakan
+  private apiUrl = environment.baseURL + 'post/v1/'; // Ganti dengan URL API sebenarnya jika digunakan
 
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('token')}`,
+    'ngrok-skip-browser-warning': 'true',
   });
   add(data: IPost): Observable<any> {
     const body = JSON.stringify(data);
-    return this.http.post<IPost>(`${environment.baseURL}/post/v1/sv`, body, {
+    return this.http.post<IPost>(`${environment.baseURL}post/v1/sv`, body, {
       headers: this.headers,
     });
   }
@@ -70,6 +71,11 @@ export class PostService {
       headers: this.headers,
     });
   }
+  deleteReply(data: any) {
+    return this.http.post<any>(`${environment.baseURL}reply/v1/del/${data}`, {
+      headers: this.headers,
+    });
+  }
 
   getById(data: any) {
     const body = JSON.stringify(data);
@@ -80,6 +86,11 @@ export class PostService {
   getByUserId(data: any) {
     const body = JSON.stringify(data);
     return this.http.get<any>(`${environment.baseURL}post/v1/get/${data}`, {
+      headers: this.headers,
+    });
+  }
+  getByUser(data: any) {
+    return this.http.get<any>(`${this.apiUrl}fbp/0/10?col=user&val=${data}`, {
       headers: this.headers,
     });
   }

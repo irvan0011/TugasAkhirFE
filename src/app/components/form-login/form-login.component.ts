@@ -25,7 +25,7 @@ export class FormLoginComponent {
         this.resultLogin = respon;
         localStorage.setItem('token', this.resultLogin.data.token);
         localStorage.setItem('userid', this.resultLogin.data.id);
-        this.router.navigate(['/postadd']);
+        this.router.navigate(['']);
       });
   }
   public handleError(error: HttpErrorResponse) {

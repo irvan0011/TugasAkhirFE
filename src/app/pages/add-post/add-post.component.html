@@ -1,5 +1,5 @@
 <app-navbar class="w-full h-auto fixed z-20" (data)="addPost($event)"></app-navbar>
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center mt-5 pt-3">
   <div class="col-sm-12 col-lg-8">
     <input type="text" class="title col-12 my-3" placeholder="Judul" [(ngModel)]="post.judulPost" required>
 
@@ -20,7 +20,7 @@
         </div>
       </label>
     </div>
-    <input type="file" multiple="multiple" accept=".png,.jpge/*" id="input-img" hidden name="imgFile"
+    <input type="file" multiple="multiple" accept=".png,.jpge/*,.jpeg,.jpg" id="input-img" hidden name="imgFile"
       (change)="onFileChange($event)" [(ngModel)]="post.fotoKonten">
     <!-- <textarea name="deskripsi" id="" rows="12" class="my-3 rounded-3">
     </textarea> -->

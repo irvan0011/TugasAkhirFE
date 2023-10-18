@@ -15,6 +15,8 @@ export class HomeService {
     'Content-Type': 'application/json',
     'x-access-token':
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNocmlzdGluYUBnbWFpbC5jb20iLCJ1c2VySWQiOiI2NTEwZWU4M2IzYTk5Njk4MjNmODhhYjgiLCJpYXQiOjE2OTU2MTQ0MzAsImV4cCI6MTcwMjgxNDQzMH0.r7v_wTtbYIlAc45-CdBF0dS5cgToU2H-duUoQ0sX1KQ',
+
+    'ngrok-skip-browser-warning': 'true',
   });
 
   constructor(private http: HttpClient) {}

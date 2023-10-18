@@ -33,12 +33,15 @@ export class DetailPostComponent implements OnInit {
   ) {
     this.vote = new Vote();
     this.result = new Post();
+    this.resultByUser = new Array<Post>();
     this.result.listReply = new Array<Reply>();
   }
 
   ngOnInit() {
     // console.log(Number(this.route.snapshot.params['id']));
     this.getById();
+    this.getByUser(1);
+    console.log(this.result);
 
     // Access the query parameter from the route
     this.route.queryParams.subscribe((params) => {
@@ -48,6 +51,12 @@ export class DetailPostComponent implements OnInit {
         this.isOpenSidebar = true;
       }
     });
+  }
+  navigateToDetailPost(data: any) {
+    // Set the flag before navigating away
+    this.router.navigate([`/post/${data}`]);
+    this.id = data;
+    this.getById();
   }
   openSidebar() {
     this.isOpenSidebar = true;
@@ -165,12 +174,23 @@ export class DetailPostComponent implements OnInit {
       });
   }
   result: IPost;
+  resultByUser: Array<IPost>;
   getById() {
     this.postService
       .getById(this.id)
       .pipe(catchError(this.handleError))
       .subscribe((respon: any) => {
         this.result = respon.data;
+        console.log(this.result);
+      });
+  }
+  getByUser(data: any) {
+    this.postService
+      .getPostTerbaru(data)
+      .pipe(catchError(this.handleError))
+      .subscribe((respon: any) => {
+        this.resultByUser = respon.data.content;
+        console.log(this.result);
       });
   }
 
